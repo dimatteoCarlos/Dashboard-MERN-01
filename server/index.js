@@ -11,7 +11,7 @@ import helmet from 'helmet';
 import generalRoutes from './routes/routeGeneral.js';
 import clientRoutes from './routes/routeClient.js';
 import salesRoutes from './routes/routeSales.js';
-// import managementRoutes from './routes/routeManagement.js';
+import managementRoutes from './routes/routeManagement.js'
 
 //collection model imports Models[{collectionNameIndex}]
 
@@ -37,8 +37,8 @@ app.use(morgan('common'));
 app.use('/general', generalRoutes);
 app.use('/client', clientRoutes);
 app.use('/sales', salesRoutes);
+app.use('/management', managementRoutes)
 
-// app.use('/management', managementRoutes);
 
 /*MONGOOSE SETUP */
 const PORT = process.env.PORT || 5001;
@@ -55,9 +55,9 @@ const options = {
 };
 
 mongoose
-  .connect(process.env.DB_CONNECTION_STRING, options)
+  // .connect(process.env.DB_CONNECTION_STRING, options)
 
-  // .connect('mongodb://localhost:27017', options)
+  .connect('mongodb://localhost:27017', options)
 
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

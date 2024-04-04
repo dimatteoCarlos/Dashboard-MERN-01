@@ -18,6 +18,7 @@ export const api = createApi({
     'Transactions',
     'UsersByGeography',
     'Overview',
+    'Admin',
   ],
 
   //the main logic is here
@@ -71,7 +72,7 @@ export const api = createApi({
       providesTags: ['Overview'],
     }),
 
-    // getOverallStats:build.query({
+    // getSales:build.query({
     //   query:()=>(
     //     {
     //       method:'GET',
@@ -80,6 +81,16 @@ export const api = createApi({
     //   ),
     //   providesTags:['Overview']
     // }),
+
+    getAdmin: build.query({
+      query: () => ({
+        method: 'GET',
+        url: '/management/admin',
+        // params:
+      }),
+
+      providesTags: ['Admin'],
+    }),
   }),
 });
 
@@ -90,6 +101,8 @@ export const {
   useGetTransactionsQuery,
   useGetUsersByGeographyQuery,
   useGetSalesQuery,
+  useGetAdminQuery,
+  
 } = api;
 
 //useFunctionQuery
