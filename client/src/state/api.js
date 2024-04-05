@@ -19,6 +19,7 @@ export const api = createApi({
     'UsersByGeography',
     'Overview',
     'Admin',
+    'Performance'
   ],
 
   //the main logic is here
@@ -91,6 +92,17 @@ export const api = createApi({
 
       providesTags: ['Admin'],
     }),
+
+    getAffiliateStat:build.query(
+      {
+        query:()=>({
+          method:'GET',
+          url:'/management/performance',
+        }),
+
+        providesTags:['Performance']
+      }
+    )
   }),
 });
 
@@ -102,6 +114,8 @@ export const {
   useGetUsersByGeographyQuery,
   useGetSalesQuery,
   useGetAdminQuery,
+  useGetAffiliateStatQuery, 
+
   
 } = api;
 

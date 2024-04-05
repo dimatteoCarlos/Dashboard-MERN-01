@@ -55,9 +55,9 @@ const options = {
 };
 
 mongoose
-  // .connect(process.env.DB_CONNECTION_STRING, options)
+  .connect(process.env.DB_CONNECTION_STRING, options)
 
-  .connect('mongodb://localhost:27017', options)
+  // .connect('mongodb://localhost:27017', options)
 
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

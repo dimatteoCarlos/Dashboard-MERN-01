@@ -34,7 +34,7 @@ export const schemaSpecsObj = {
     rating: Number,
     supply: Number,
   },
-
+/*--------------*/
   productStatSpecs: {
     productId: String,
     yearlySalesTotal: Number,

@@ -21,6 +21,8 @@ import Monthly from './scenes/monthly/Monthly.jsx';
 import Breakdown from './scenes/breakdown/Breakdown.jsx';
 import Admin from './scenes/admin/Admin.jsx';
 
+import Performance from './scenes/performance/Performance.jsx';
+
 function App() {
   //to grab the state from store
   const mode = useSelector((state) => state.global.mode);
@@ -45,7 +47,9 @@ function App() {
               <Route path='/daily' element={<Daily></Daily>} />
               <Route path='/monthly' element={<Monthly />} />
               <Route path='/breakdown' element={<Breakdown />} />
-              <Route path='/admin' element={<Admin/>}></Route>
+              <Route path='/admin' element={<Admin />}></Route>
+
+              <Route path='/performance' element={<Performance/>}/>
             </Route>
           </Routes>
         </ThemeProvider>

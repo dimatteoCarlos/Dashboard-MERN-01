@@ -1,30 +1,35 @@
-//Customers.jsx
+//Performance.jsx
 //Parent:Layout.jsx
 
 import { useTheme, Box } from '@mui/material';
-import {
-  DataGrid,
-  GridToolbar,
-  // GridColDef,
-  // GridRenderCellParams,
-} from '@mui/x-data-grid';
-import { useGetCustomersQuery } from '../../state/api';
-import { userHeaderColumns as columns } from './userHeaderColumns';
+
+import { DataGrid, GridToolbar } from '@mui/x-data-grid';
+
+import { useGetAffiliateStatQuery } from '../../state/api';
+import { affiliatestatHeaderColumns as columns } from './affiliatestatHeaderColumns';
 import Header from '../../components/header/Header';
+import { useState } from 'react';
+import DataGridCustomToolbar from '../../components/DataGridCustomToolbar';
 
-const Customers = () => {
-  const { isLoading, data, isError } = useGetCustomersQuery();
+const Performance = () => {
+  //values to be sent to the backend
+  // const [page, setPage] = useState(0);
+  // const [pageSize, setPageSize] = useState(15);
+  // const [sort, setSort] = useState({});
+  // const [search, setSearch] = useState('');
+  // const [searchInput, setSearchInput] = useState('');
 
-  // console.log('🚀 ~ Customers ~ data:', data);
+  const { data, isLoading, isFetching } = useGetAffiliateStatQuery();
+
+  const rowsData = data || [];
+  console.log('🚀 ~ Performance ~ rowsData:', rowsData);
 
   const headerTitle = {
-    title: 'CUSTOMERS',
-    subTitle: 'List of Customers',
+    title: 'PERFORMANCE',
+    subTitle: 'Track your Affiliate Sales Performance here',
   };
-  // const columns = [...userHeaderColumns];
 
   const theme = useTheme();
-  const pageSize = 15;
 
   return (
     <>
@@ -33,7 +38,7 @@ const Customers = () => {
 
         <Box
           mt='2rem'
-          height='80vh'
+          height='90vh'
           sx={{
             '& .MuiDataGrid-root': {
               border: 'none',
@@ -59,23 +64,23 @@ const Customers = () => {
             },
           }}
         >
-          
           <DataGrid
-            className='dataTable__dataGrid'
-            loading={isLoading || !data}
-            rows={data || []}
+            loading={isLoading || isFetching || !rowsData}
+            rows={rowsData || []}
             getRowId={(row) => row._id}
             columns={columns}
-
-         
-
-            // initialState={{
-            //   pagination: {
-            //     paginationModel: {
-            //       pageSize: pageSize,
-            //     },
-            //   },
-            // }}
+            // pagination
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  pageSize: 10,
+                },
+              },
+            }}
+            pageSizeOptions={[5, 10, 15, 50, 100]}
+            checkboxSelection
+            disableRowSelectionOnClick
+            //--------------
 
             // slots={{ toolbar: GridToolbar }}
             // slotProps={{
@@ -84,7 +89,7 @@ const Customers = () => {
             //     quickFilterProps: { debounceMs: 500 },
             //   },
             // }}
-
+            // {}
             // pageSizeOptions={[{ pageSize }]}
             // checkboxSelection
             // disableRowSelectionOnClick
@@ -97,4 +102,4 @@ const Customers = () => {
   );
 };
 
-export default Customers;
+export default Performance;

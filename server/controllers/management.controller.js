@@ -2,7 +2,7 @@
 
 import Models from '../models/CollectionModels.js';
 
-const getAdmin = async (req, res) => {
+export  const getAdmin = async (req, res) => {
   try {
     const UserModel = Models[0].collectionModel;
     const usersAdmin = await UserModel.find({
@@ -22,4 +22,23 @@ const getAdmin = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
-export default getAdmin;
+
+//affiliatestat data is associated to route:  management/performance
+export const getAffiliateStat=async(req, res)=>{
+try {
+  const AffiliateStatModel= Models[5].collectionModel;
+
+  const affiliatestat=await AffiliateStatModel.find()
+  console.log("🚀 ~ getAffiliateStat ~ affiliatestat:", affiliatestat)
+
+  res.status(200).json(affiliatestat)
+
+
+} catch (error) {
+  res.status(404).json({message:error.message})
+}
+
+
+
+
+}
