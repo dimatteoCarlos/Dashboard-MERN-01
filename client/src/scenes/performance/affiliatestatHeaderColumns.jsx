@@ -18,7 +18,7 @@ export const affiliatestatHeaderColumns = [
     renderCell: (params) => Number(params.value.length),
     type: Number,
   },
-
+/*
   {
     field: 'cost',
     headerName: 'Cost ($)',
@@ -26,10 +26,11 @@ export const affiliatestatHeaderColumns = [
     sortable: true,
     // renderCell: (params) => parseFloat( (Math.round(params.value*100)/100)),
 
-    // renderCell: (params) =>  Number(params.value).toFixed(2),
+    renderCell: (params) =>  Number(params.value).toFixed(2),
 
-    renderCell: (params) => Number(`${Math.round(`${params.value}e2`)}e-2`),
+    // renderCell: (params) => Number(`${Math.round(`${params.value}e2`)}e-2`),
 
     type: Number,
   },
+  */
 ];

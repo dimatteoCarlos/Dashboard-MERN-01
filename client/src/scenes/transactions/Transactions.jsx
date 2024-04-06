@@ -3,7 +3,6 @@
 
 import { useTheme, Box } from '@mui/material';
 import { DataGrid,
-  //  GridToolbar
  } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../state/api';
 import { transactionsHeaderColumns as columns } from './transactionsHeaderColumns';
@@ -70,7 +69,7 @@ const Transactions = () => {
               color: `${theme.palette.secondary[200]} !important`,
             },
           }}
-        >
+        >  
           <DataGrid
             className='dataTable__dataGrid'
             loading={isLoading || !data}
@@ -93,27 +92,13 @@ const Transactions = () => {
             onSortModelChange={(newSortModel) => setSort(...newSortModel)}
             // {**************}
             //update this issue
-            components={{ Toolbar: DataGridCustomToolbar }}
+          
+            slot={{ Toolbar: DataGridCustomToolbar }}
             // {}
-            componentsProps={{
+            slotProps={{
               toolbar: { searchInput, setSearchInput, setSearch },
             }}
 
-            // {**************}
-
-            // slots={{ toolbar: GridToolbar }}
-            // slotProps={{
-            //   toolbar: {
-            //     showQuickFilter: true,
-            //     quickFilterProps: { debounceMs: 500 },
-            //   },
-            // }}
-            // {}
-            // pageSizeOptions={[{ pageSize }]}
-            // checkboxSelection
-            // disableRowSelectionOnClick
-            // disableColumnSelector
-            // disableDensitySelector
           />
         </Box>
       </Box>

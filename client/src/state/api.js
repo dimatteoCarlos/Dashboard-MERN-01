@@ -19,7 +19,7 @@ export const api = createApi({
     'UsersByGeography',
     'Overview',
     'Admin',
-    'Performance'
+    'Performance',
   ],
 
   //the main logic is here
@@ -92,17 +92,27 @@ export const api = createApi({
 
       providesTags: ['Admin'],
     }),
+/*
+    getAffiliateStat: build.query({
+      query: () => ({
+        method: 'GET',
+        url: '/management/affiliatestat',
+      }),
 
-    getAffiliateStat:build.query(
-      {
-        query:()=>({
-          method:'GET',
-          url:'/management/performance',
-        }),
+      providesTags: ['Performance'],
+    }),
+    */
+//-----------------------
+getUserPerformance:build.query({
+  query:(id)=>`management/performance/${id}`, 
+  providesTags:['Performance']
 
-        providesTags:['Performance']
-      }
-    )
+})
+
+
+
+
+
   }),
 });
 
@@ -114,9 +124,9 @@ export const {
   useGetUsersByGeographyQuery,
   useGetSalesQuery,
   useGetAdminQuery,
-  useGetAffiliateStatQuery, 
-
-  
+  // useGetAffiliateStatQuery,
+  useGetUserPerformanceQuery,
+  useGet
 } = api;
 
 //useFunctionQuery

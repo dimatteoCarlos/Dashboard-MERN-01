@@ -20,8 +20,9 @@ import Daily from './scenes/daily/Daily.jsx';
 import Monthly from './scenes/monthly/Monthly.jsx';
 import Breakdown from './scenes/breakdown/Breakdown.jsx';
 import Admin from './scenes/admin/Admin.jsx';
+import UserPerformance from './scenes/userPerformance/UserPerformance.jsx';
 
-import Performance from './scenes/performance/Performance.jsx';
+// import Performance from './scenes/performance/Performance.jsx';
 
 function App() {
   //to grab the state from store
@@ -49,7 +50,8 @@ function App() {
               <Route path='/breakdown' element={<Breakdown />} />
               <Route path='/admin' element={<Admin />}></Route>
 
-              <Route path='/performance' element={<Performance/>}/>
+              {/* <Route path='/performance' element={<Performance/>}/> */}
+              <Route path='/performance' element={<UserPerformance />} />
             </Route>
           </Routes>
         </ThemeProvider>

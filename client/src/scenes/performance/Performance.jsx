@@ -12,17 +12,12 @@ import { useState } from 'react';
 import DataGridCustomToolbar from '../../components/DataGridCustomToolbar';
 
 const Performance = () => {
-  //values to be sent to the backend
-  // const [page, setPage] = useState(0);
-  // const [pageSize, setPageSize] = useState(15);
-  // const [sort, setSort] = useState({});
-  // const [search, setSearch] = useState('');
-  // const [searchInput, setSearchInput] = useState('');
+
 
   const { data, isLoading, isFetching } = useGetAffiliateStatQuery();
 
   const rowsData = data || [];
-  console.log('🚀 ~ Performance ~ rowsData:', rowsData);
+  // console.log('🚀 ~ Performance ~ rowsData:', rowsData);
 
   const headerTitle = {
     title: 'PERFORMANCE',
@@ -69,7 +64,7 @@ const Performance = () => {
             rows={rowsData || []}
             getRowId={(row) => row._id}
             columns={columns}
-            // pagination
+            pagination
             initialState={{
               pagination: {
                 paginationModel: {
@@ -78,11 +73,15 @@ const Performance = () => {
               },
             }}
             pageSizeOptions={[5, 10, 15, 50, 100]}
-            checkboxSelection
             disableRowSelectionOnClick
+            disableColumnSelector
+            disableExport={true}
+            disableDensitySelector
+            // checkboxSelection
             //--------------
 
-            // slots={{ toolbar: GridToolbar }}
+            slots={{ toolbar: GridToolbar }}
+
             // slotProps={{
             //   toolbar: {
             //     showQuickFilter: true,
@@ -90,11 +89,7 @@ const Performance = () => {
             //   },
             // }}
             // {}
-            // pageSizeOptions={[{ pageSize }]}
-            // checkboxSelection
-            // disableRowSelectionOnClick
-            // disableColumnSelector
-            // disableDensitySelector
+
           />
         </Box>
       </Box>

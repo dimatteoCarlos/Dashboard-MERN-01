@@ -43,8 +43,7 @@ const Layout = () => {
         />
 
         <Outlet
-        // isSidebarOpen={isSidebarOpen}
-        // setIsSidebarOpen={setIsSidebarOpen}
+        
         />
       </Box>
     </Box>
