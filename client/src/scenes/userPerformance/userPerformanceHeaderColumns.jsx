@@ -20,7 +20,7 @@ export const userPerformanceHeaderColumns = [
   },
   {
     field: "products",
-    headerName: "# of Products",
+    headerName: "Qty of Products",
     flex: 0.5,
     sortable: false,
     renderCell: (params) => params.value.length,

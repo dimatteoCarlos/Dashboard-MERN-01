@@ -9,9 +9,7 @@ import Header from '../../components/header/Header';
 import { useTheme } from '@mui/material';
 import { userPerformanceHeaderColumns as columns } from './userPerformanceHeaderColumns.jsx';
 
-//prueba
 import {
-  GridToolbar,
   GridToolbarContainer,
   GridToolbarColumnsButton,
   GridToolbarFilterButton,
@@ -26,6 +24,7 @@ function CustomToolbar() {
       <GridToolbarColumnsButton />
       <GridToolbarFilterButton />
       <GridToolbarDensitySelector
+
       //questo non da retta
       // slotProps={{ tooltip: { title: 'Change density' } }}
       />
@@ -36,6 +35,7 @@ function CustomToolbar() {
           border: '1px solid yellow',
           marginBottom: '1rem',
         }}
+
         //questo slotProps non fa niente
         //react complains about slotProps
         /*
@@ -54,7 +54,7 @@ function CustomToolbar() {
 const UserPerformance = () => {
   const theme = useTheme();
   const userId = useSelector((state) => state.global.userId);
-  console.log('🚀 ~ UserPerformance ~ userId:', userId, typeof userId);
+  // console.log('🚀 ~ UserPerformance ~ userId:', userId, typeof userId);
 
   let {
     data: rows,
@@ -63,11 +63,9 @@ const UserPerformance = () => {
     isError,
   } = useGetUserPerformanceQuery(userId);
 
-  console.log('data:', rows);
-
   const headerTitle = {
     title: 'USER PERFORMANCE',
-    subTitle: 'Track the sales of a user',
+    subTitle: 'Track your Affiliate Sales Performance',
   };
 
   if (!rows && (isLoading || isFetching)) return 'Loading...';
