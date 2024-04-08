@@ -21,7 +21,7 @@ export const schemaSpecsObj = {
       default: 'admin',
     },
   },
-//------------------
+  //------------------
   productSpecs: {
     name: { type: String, required: true, min: 4, max: 10 },
     price: { type: Number, required: true },
@@ -34,7 +34,7 @@ export const schemaSpecsObj = {
     rating: Number,
     supply: Number,
   },
-/*--------------*/
+  /*--------------*/
   productStatSpecs: {
     productId: String,
     yearlySalesTotal: Number,
@@ -48,7 +48,7 @@ export const schemaSpecsObj = {
       totalUnits: Number,
     },
   },
-//------------------
+  //------------------
   overallStatSpecs: {
     totalCustomers: Number,
     yearlySalesTotal: Number,
@@ -72,9 +72,8 @@ export const schemaSpecsObj = {
       type: Map,
       of: Number,
     },
-
   },
-//-----------------------
+  //-----------------------
   transactionsSpecs: {
     userId: String,
     cost: String,
@@ -83,7 +82,7 @@ export const schemaSpecsObj = {
       of: Number,
     },
   },
-//-----------------------
+  //-----------------------
   affiliateStatSpecs: {
     userId: { type: mongoose.Types.ObjectId, ref: 'User' },
     affiliateSales: {
@@ -92,5 +91,3 @@ export const schemaSpecsObj = {
     },
   },
 };
-
-

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-//const configureStore=require('@reduxjs/toolkit').configureStore
 
 import { Provider } from 'react-redux';
 
@@ -18,10 +17,10 @@ import { api } from './state/api.js';
 
 const store = configureStore({
   reducer: {
-    global: globalReducer, 
+    global: globalReducer,
     [api.reducerPath]: api.reducer,
   },
-  
+
   //from RTKQ
   middleware: (getDefault) => getDefault().concat(api.middleware),
 });

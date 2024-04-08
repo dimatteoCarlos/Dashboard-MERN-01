@@ -29,7 +29,7 @@ export const getAffiliateStat = async (req, res) => {
     const AffiliateStatModel = Models[5].collectionModel;
 
     const affiliatestat = await AffiliateStatModel.find();
-    console.log('🚀 ~ getAffiliateStat ~ affiliatestat:', affiliatestat);
+    // console.log('🚀 ~ getAffiliateStat ~ affiliatestat:', affiliatestat);
 
     res.status(200).json(affiliatestat);
   } catch (error) {
@@ -42,8 +42,8 @@ export const getUserPerformance = async (req, res) => {
     const UserModel = Models[0].collectionModel;
     const TransactionsModel = Models[4].collectionModel;
     const { id } = req.params;
-    console.log('id:', id, id instanceof String, typeof id);
 
+console.log('id:',id)
     /*en el manual de mongoose: Mongoose does not cast pipeline stages. The below will not work unless _id is a string in the database
 
 new Aggregate([{ $match: { _id: '00000000000000000000000a' } }]); // Do this instead to cast to an ObjectId new Aggregate([{ $match: { _id: new mongoose.Types.ObjectId('00000000000000000000000a') } }]);

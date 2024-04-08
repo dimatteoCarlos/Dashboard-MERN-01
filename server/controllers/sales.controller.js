@@ -11,8 +11,6 @@ console.log('OverallStatsModel', OverallStatsModel)
 
 const overallstats = await Models[3].collectionModel.find();
 
-console.log("🚀 ~ getOverallStats ~ overallStats:", overallstats)
-
     res.status(200).json(overallstats[0])
 
   } catch (error) {

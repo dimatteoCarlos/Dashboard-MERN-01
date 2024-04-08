@@ -52,9 +52,7 @@ function App() {
 
               {/* <Route path='/performance' element={<Performance/>}/> */}
               <Route path='/performance' element={<UserPerformance />} />
-              
-<Route path='/dashboard' element={<Dashboard/>}></Route>
-
+              <Route path='/dashboard' element={<Dashboard />}></Route>
             </Route>
           </Routes>
         </ThemeProvider>

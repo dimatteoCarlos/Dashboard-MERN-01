@@ -31,7 +31,7 @@ export function capitalize(str) {
   const firstLetter = str.trim().substring(0, 1).toUpperCase();
   const restOfWord = str.trim().substring(1).toLowerCase();
 
-  return (firstLetter + restOfWord).toUpperCase();
+  return (firstLetter + restOfWord).toUpperCase(); //doesn't matter wether capitalize or uppercase
 }
 
 const schemaOptions = { timestamps: true, versionKey: false };
@@ -47,7 +47,6 @@ for (let i = 0; i < schemaKeyArr.length; i++) {
   const collectionName = capitalize(schemaKeyArr[i].split('Specs')[0]);
 
   // console.log(collectionName)
-
 
   Models[i] = {
     collectionModel: model(collectionName, CollectionSchema),

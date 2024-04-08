@@ -2,8 +2,7 @@
 //Parent:Layout.jsx
 
 import { useTheme, Box } from '@mui/material';
-import { DataGrid,
- } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../state/api';
 
 import { transactionsHeaderColumns as columns } from './transactionsHeaderColumns';
@@ -71,7 +70,7 @@ const Transactions = () => {
               color: `${theme.palette.secondary[200]} !important`,
             },
           }}
-        >  
+        >
           <DataGrid
             className='dataTable__dataGrid'
             loading={isLoading || !data}
@@ -93,14 +92,13 @@ const Transactions = () => {
             onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
             onSortModelChange={(newSortModel) => setSort(...newSortModel)}
             // {**************}
-            //update this issue
-          
+            //update this issue, componente is deprecated
+
             slot={{ Toolbar: DataGridCustomToolbar }}
             // {}
             slotProps={{
               toolbar: { searchInput, setSearchInput, setSearch },
             }}
-
           />
         </Box>
       </Box>

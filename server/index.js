@@ -28,12 +28,12 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//make api call from another server
+//make  api call possible from another server
 app.use(cors());
-app.use(morgan('common'));
+app.use(morgan('common')); //check this
 
 /*ROUTES */
-//app.use('route',router)
+//app.use('route',router) sintax
 app.use('/general', generalRoutes);
 app.use('/client', clientRoutes);
 app.use('/sales', salesRoutes);
@@ -47,7 +47,7 @@ const PORT = process.env.PORT || 5001;
 //   process.env.DB_CONNECTION_STRING
 // );
 
-//parece que ya las options no hacen falta actualmente.
+//seems that options are not longer required.
 
 const options = {
   // useNewUrlParser: true,
@@ -55,9 +55,9 @@ const options = {
 };
 
 mongoose
-  // .connect(process.env.DB_CONNECTION_STRING, options)
+  .connect(process.env.DB_CONNECTION_STRING, options)
 
-  .connect('mongodb://localhost:27017', options)
+  // .connect('mongodb://localhost:27017', options)
 
   .then(() => {
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));

@@ -1,37 +1,37 @@
 //DataGridCustomToolbar.jsx
 //to use these componente it is necessary to use the update instruction of customization of mui
-import { Search } from "@mui/icons-material";
-import { IconButton, TextField, InputAdornment } from "@mui/material";
+import { Search } from '@mui/icons-material';
+import { IconButton, TextField, InputAdornment } from '@mui/material';
 import {
   GridToolbarDensitySelector,
   GridToolbarContainer,
   GridToolbarExport,
   GridToolbarColumnsButton,
-} from "@mui/x-data-grid";
-import FlexBetween from "./FlexBetween";
+} from '@mui/x-data-grid';
+import FlexBetween from './FlexBetween';
 
 const DataGridCustomToolbar = ({ searchInput, setSearchInput, setSearch }) => {
   return (
     <GridToolbarContainer>
-      <FlexBetween width="100%">
+      <FlexBetween width='100%'>
         <FlexBetween>
           <GridToolbarColumnsButton />
           <GridToolbarDensitySelector />
           <GridToolbarExport />
         </FlexBetween>
         <TextField
-          label="Search..."
-          sx={{ mb: "0.5rem", width: "15rem" }}
+          label='Search...'
+          sx={{ mb: '0.5rem', width: '15rem' }}
           onChange={(e) => setSearchInput(e.target.value)}
           value={searchInput}
-          variant="standard"
+          variant='standard'
           InputProps={{
             endAdornment: (
-              <InputAdornment position="end">
+              <InputAdornment position='end'>
                 <IconButton
                   onClick={() => {
                     setSearch(searchInput);
-                    setSearchInput("");
+                    setSearchInput('');
                   }}
                 >
                   <Search />

@@ -26,9 +26,9 @@ export const getDashboardStats = async (req, res) => {
     const TransactionsModel = Models[4].collectionModel;
 
     //hardcoded data:
-    const currentMonth = 'November';
+    const currentMonth = 'April';
     const currentYear = 2021;
-    const currentDay = '2021-11-15';
+    const currentDay = '2021-04-08';
     //Overall Stats
     const overallStats = await OverallStatModel.find({ year: currentYear });
 
@@ -45,17 +45,11 @@ export const getDashboardStats = async (req, res) => {
       (monthData) => monthData.month === currentMonth
     ).totalSales;
 
-    console.log('🚀 ~ getDashboardStats ~ monthlySales:', monthlySales);
-
     const currentMonthStats = monthlyData.find(({ month }) => {
       return month === currentMonth;
     });
-    console.log(
-      '🚀 ~ currentMonthStats ~ currentMonthStats:',
-      currentMonthStats
-    );
 
-    //----------date
+    //----------date-------
     const salesToday = dailyData.find(
       (dayData) => currentDay === dayData.date
     ).totalSales;

@@ -14,7 +14,7 @@ import Navbar from '../../components/navBar/Navbar.jsx';
 import Sidebar from '../../components/sidebar/Sidebar.jsx';
 //---------------------
 const Layout = () => {
-  const isNonMobile = useMediaQuery('(min-width: 600px)'); //do not forget the ()
+  const isNonMobile = useMediaQuery('(min-width: 600px)'); //do not forget the '()'
 
   // console.log("🚀 ~ Layout ~ isNonMobile:", isNonMobile)
 
@@ -23,7 +23,6 @@ const Layout = () => {
   const userId = useSelector((state) => state.global.userId);
 
   const { data: user } = useGetUserQuery(userId);
-
 
   return (
     <Box display={isNonMobile ? 'flex' : 'block'} width='100%' height='100%'>
@@ -42,9 +41,7 @@ const Layout = () => {
           setIsSidebarOpen={setIsSidebarOpen}
         />
 
-        <Outlet
-        
-        />
+        <Outlet />
       </Box>
     </Box>
   );

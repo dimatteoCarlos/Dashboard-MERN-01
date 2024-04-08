@@ -2,7 +2,7 @@
 //create the api endpoint for RTkQ
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// baseUrl: process.env.REACT_APP_BASE_URL,//PORQUE NO FUNCIONA?
+// baseUrl: process.env.REACT_APP_BASE_URL,//did not work this way?
 // baseUrl: 'http://localhost:5001',
 
 export const api = createApi({

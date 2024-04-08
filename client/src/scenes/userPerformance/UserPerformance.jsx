@@ -54,7 +54,7 @@ function CustomToolbar() {
 const UserPerformance = () => {
   const theme = useTheme();
   const userId = useSelector((state) => state.global.userId);
-  // console.log('🚀 ~ UserPerformance ~ userId:', userId, typeof userId);
+  console.log('🚀 ~ UserPerformance ~ userId:', userId, typeof userId);
 
   let {
     data: rows,
@@ -69,8 +69,9 @@ const UserPerformance = () => {
   };
 
   if (!rows && (isLoading || isFetching)) return 'Loading...';
-
-  if (!rows && isError) return 'Something went wrong...';
+  console.log('rows:', rows);
+  if (!rows && isError)
+    return `Something went wrong...No transactions for this user: ${userId}`;
 
   return (
     <>
