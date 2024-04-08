@@ -89,7 +89,6 @@ const Breakdown = () => {
             minHeight={isDashboard ? '20rem' : undefined}
             minWidth={isDashboard ? '20rem' : undefined}
             position='relative'
-            // border='1px solid yellow'
           >
             {!isLoading && !isError && chartData && (
               <BreakdownChart

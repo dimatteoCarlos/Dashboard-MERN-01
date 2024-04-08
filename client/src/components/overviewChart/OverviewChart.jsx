@@ -45,7 +45,10 @@ const OverviewChart = ({ view, data, theme, isDashboard = false }) => {
         },
       }}
       colors={{datum:'color'}}
-      margin={{ top: 20, right: 110, bottom: 150, left: 90 }}
+      // margin={{ top: 20, right: 110, bottom: 150, left: 90 }}
+      
+      margin={isDashboard? { top: 70, right: 90, bottom: 90, left: 100 }:{ top: 20, right: 110, bottom: 150, left: 90 } }
+
       xScale={{ type: 'point' }}
       yScale={{
         type: 'linear',

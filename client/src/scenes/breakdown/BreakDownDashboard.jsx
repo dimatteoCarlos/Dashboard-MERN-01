@@ -1,18 +1,13 @@
+//BreakDownDashboard.jsx
+//Parent: Dashboard.jsx
+
 import { ResponsivePie } from '@nivo/pie';
 import { Box, Typography, useTheme } from '@mui/material';
 import { useGetSalesQuery } from '../../state/api';
 
-const BreakDown = ({ isDashboard = false }) => {
+const BreakDown = ({ isDashboard = false, colors, colored = '' }) => {
   const { data, isLoading } = useGetSalesQuery();
   const theme = useTheme();
-  const colored = 'nivo';
-
-  const colors = [
-    theme.palette.secondary[500],
-    theme.palette.secondary[300],
-    theme.palette.secondary[300],
-    theme.palette.secondary[500],
-  ];
 
   const yearlySalesTotal = data ? data.yearlySalesTotal : '';
 
@@ -137,7 +132,7 @@ const BreakDown = ({ isDashboard = false }) => {
           }}
         >
           <Typography variant='h6'>
-            {!isDashboard && 'Total:'} ${data.yearlySalesTotal}
+            {!isDashboard && 'Total:'} ${yearlySalesTotal}
           </Typography>
         </Box>
       </Box>

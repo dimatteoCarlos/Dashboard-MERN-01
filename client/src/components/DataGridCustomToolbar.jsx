@@ -1,5 +1,5 @@
 //DataGridCustomToolbar.jsx
-
+//to use these componente it is necessary to use the update instruction of customization of mui
 import { Search } from "@mui/icons-material";
 import { IconButton, TextField, InputAdornment } from "@mui/material";
 import {

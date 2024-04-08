@@ -3,10 +3,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 //interface ModeType {mode:'dark' | "light"}
-
+// 63701cc1f032390a34000319
 const initialState = {
   mode: 'dark',
-  userId: '63701cc1f03239b7f700000e',
+  // userId: '63701cc1f03239b7f700000e',
+  userId: '63701cc1f032390a34000319',
   //supposed to come from a login/auth process
 };
 

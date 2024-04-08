@@ -20,8 +20,7 @@ const StatTile = ({ title, value, increase, icon, description }) => {
           gridRow: 'span 1',
         }}
       >
-        <FlexBetween
-        >
+        <FlexBetween>
           <Typography variant='h6' sx={{ color: theme.palette.secondary[100] }}>
             {title}
           </Typography>
@@ -42,8 +41,7 @@ const StatTile = ({ title, value, increase, icon, description }) => {
         <FlexBetween gap='1rem'>
           <Typography
             variant='h5'
-         
-            sx={{ color: theme.palette.secondary.light,   fontSytle:'italic' }}
+            sx={{ color: theme.palette.secondary.light, fontSytle: 'italic' }}
           >
             {increase}
           </Typography>

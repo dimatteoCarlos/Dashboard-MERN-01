@@ -23,7 +23,7 @@ const UsersByGeography = () => {
   const maxValue = 60;
   const textLabel = 'Colors Range';
 
-  console.log('🚀 ~ UsersByGeography ~ :', chartData);
+  // console.log('🚀 ~ UsersByGeography ~ :', chartData);
 
   return (
     <>
@@ -50,12 +50,12 @@ const UsersByGeography = () => {
           border={`1px solid ${theme.palette.secondary[200]}`}
         >
           {!isLoading && chartData ? (
-              <MyResponsiveChoropleth
-                data={chartData}
-                theme={theme}
-                colored={colored}
-                maxValue={maxValue}
-              />
+            <MyResponsiveChoropleth
+              data={chartData}
+              theme={theme}
+              colored={colored}
+              maxValue={maxValue}
+            />
           ) : (
             <>Loading...</>
           )}

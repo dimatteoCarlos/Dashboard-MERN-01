@@ -1,17 +1,15 @@
 //client.controller.js
 
-
 import Models from '../models/CollectionModels.js';
 
 import { groupCount } from '../functions/groupCount.js';
 
 import getCountryISO3 from 'country-iso-2-to-3';
 
-// import getCountryIso3 from "country-iso-2-to-3";
-
 /******PRODUCTS*****/
-//1 dataProduct
-//2 dataProductStat
+//index of Models array, collection name
+//1 ,Products
+//2 ,ProductStat
 
 export const getProducts = async (req, res) => {
   try {
@@ -24,15 +22,15 @@ export const getProducts = async (req, res) => {
       products.map(async (product) => {
         const stat = await ProductStatModel.find({ productId: product._id });
 
-        console.log('mongodb gives you _doc when using promise.all:', {
-          ...product._doc,
-          stat,
-        });
+        //mongodb gives you _doc when using promise.all
+        // console.log('mongodb gives you _doc when using promise.all:', {
+        //   ...product._doc,
+        //   stat,
+        // });
 
         return {
           ...product._doc,
           stat,
-          //mongodb gives you _doc when using promise.all
         };
       })
     );
@@ -45,13 +43,13 @@ export const getProducts = async (req, res) => {
 };
 
 /******CUSTOMERS*****/
-//0 dataUser
+//0 ,Users
 
 export const getCustomers = async (req, res) => {
   try {
     const CustomersModel = Models[0].collectionModel;
     const customers = await CustomersModel.find({ role: 'user' });
-    
+
     const totalCustomers = customers.length;
     const totalUsers = await CustomersModel.countDocuments();
 
@@ -65,11 +63,9 @@ export const getCustomers = async (req, res) => {
 };
 
 /******TRANSACTIONS*****/
-//4 dataTransactions
+//4 ,Transactions
 
 const TransactionsModel = Models[4].collectionModel;
-
-// console.log('🚀 ~ getTransactions ~ TransactionsModel:', TransactionsModel);
 
 export const getTransactions = async (req, res) => {
   try {
@@ -109,7 +105,7 @@ export const getTransactions = async (req, res) => {
 
     // const totalTransactions = await TransactionsModel.countDocuments({
     //   name:{ $regex: search, $options: 'i' },
-    // }); //verificar esto!!!!
+    // }); //what's the intention of this. Verify!!!!
 
     console.log('🚀getTransactions:', 'of', totalTransactions);
 
@@ -122,7 +118,7 @@ export const getTransactions = async (req, res) => {
 };
 
 /******GEOGRAPHY*****/
-//0 dataUser
+//0 ,Users
 
 export const getGeography = async (req, res) => {
   try {
@@ -130,15 +126,14 @@ export const getGeography = async (req, res) => {
 
     //get all the users
     const criterium = {};
+    //to get superadmin users
     // const criterium = { role: 'superadmin' };
 
     const allUsers = await UsersModel.find(criterium).select('-password');
     //--count the users and group them by country
     const mappedLocations = groupCount(allUsers, 'country');
 
-    console.log('🚀 ~ getGeography ~ mappedLocations:', mappedLocations);
-
-    //to match the data format required by Nivo choropleth, the object obtained must be converted into an array of objects: [{"id":country-iso-3, "value":value}]
+    //to match the data format required by Nivo choropleth, the object obtained must be converted into an array of objects: [{"id":country-iso-3 format, "value":value}]
 
     const arrayOfObjects = Object.entries(mappedLocations).map(
       ([key, value]) => {
@@ -147,10 +142,8 @@ export const getGeography = async (req, res) => {
       }
     );
 
-    console.log('🚀 ~ arrayOfObjects ~ arrayOfObjects:', arrayOfObjects);
-
     res.status(200).json(arrayOfObjects);
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    res.status(404).json({ message: error.message });
   }
 };

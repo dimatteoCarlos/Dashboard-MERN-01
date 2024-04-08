@@ -20,11 +20,11 @@ const BreakdownChart = ({
   yearlySalesTotal,
   colored,
 }) => {
-  console.log('🚀DESDE BREAKDOWNCHART ~ data:', data,
-  isDashboard,
-  yearlySalesTotal,
-  colored,
-)
+  //   console.log('🚀FROM BREAKDOWNCHART ~ data:', data,
+  //   isDashboard,
+  //   yearlySalesTotal,
+  //   colored,
+  // )
   const theme = useTheme();
 
   return (
