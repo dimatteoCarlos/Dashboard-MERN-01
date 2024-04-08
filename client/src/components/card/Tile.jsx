@@ -67,7 +67,6 @@ export default function Tile({ entriesArr }) {
         backgroundImage: 'none',
         backgroundColor: theme.palette.background.alt,
         borderRadius: '0.55rem',
-        // maxWidth: 345,
         maxWidth: '22rem',
       }}
     >

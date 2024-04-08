@@ -20,15 +20,6 @@ const Breakdown = () => {
     subTitle: 'Total sales by categories',
   };
 
-  // Chart data, which must conform to this structure if using the default id and value accessors:
-
-  // Array<{
-  //     // must be unique for the whole dataset
-  //     id:    string | number,
-  //     value: number
-  // }>
-  // */
-
   const textLabel = 'Colors';
   const [colored, setColored] = useState('');
 
@@ -87,8 +78,10 @@ const Breakdown = () => {
           ''
         )}
 
-        <Box mt='2rem' height='80vh' 
-        // border='1px solid red'
+        <Box
+          mt='2rem'
+          height='80vh'
+          // border='1px solid red'
         >
           <Box
             height={isDashboard ? '25rem' : '80%'}

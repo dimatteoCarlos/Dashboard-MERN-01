@@ -2,7 +2,7 @@ import React from 'react';
 // install (please try to align the version of installed @nivo packages)
 // yarn add @nivo/pie
 import { ResponsivePie } from '@nivo/pie';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 
 /*info
 Chart data, which must conform to this structure if using the default id and value accessors:
@@ -16,13 +16,16 @@ Array<{
 
 const BreakdownChart = ({
   data,
-  theme,
   isDashboard = false,
   yearlySalesTotal,
   colored,
 }) => {
-  // console.log('🚀 ~ data:', data);
-  console.log(colored);
+  console.log('🚀DESDE BREAKDOWNCHART ~ data:', data,
+  isDashboard,
+  yearlySalesTotal,
+  colored,
+)
+  const theme = useTheme();
 
   return (
     <>

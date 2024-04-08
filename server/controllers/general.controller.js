@@ -69,10 +69,11 @@ export const getDashboardStats = async (req, res) => {
     //------------------------------
     //Recent Transactions
     const transactions = await TransactionsModel.find()
-      .limit(50)
+      .limit(25)
       .sort({ createdOn: -1 });
     //-------------------------
     res.status(200).json({
+      totalCustomers,
       yearlySalesTotal,
       yearlyTotalSoldUnits,
       salesByCategory,

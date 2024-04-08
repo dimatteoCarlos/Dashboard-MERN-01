@@ -20,6 +20,7 @@ export const api = createApi({
     'Overview',
     'Admin',
     'Performance',
+    'Dashboard',
   ],
 
   //the main logic is here
@@ -92,7 +93,7 @@ export const api = createApi({
 
       providesTags: ['Admin'],
     }),
-/*
+    /*
     getAffiliateStat: build.query({
       query: () => ({
         method: 'GET',
@@ -102,17 +103,17 @@ export const api = createApi({
       providesTags: ['Performance'],
     }),
     */
-//-----------------------
-getUserPerformance:build.query({
-  query:(id)=>`management/performance/${id}`, 
-  providesTags:['Performance']
+    //-----------------------
+    getUserPerformance: build.query({
+      query: (id) => `management/performance/${id}`,
+      providesTags: ['Performance'],
+    }),
 
-})
-
-
-
-
-
+    //-------------------------
+    getDashboardStats: build.query({
+      query: () => '/general/dashboard',
+      providesTags: ['Dashboard'],
+    }),
   }),
 });
 
@@ -126,7 +127,8 @@ export const {
   useGetAdminQuery,
   // useGetAffiliateStatQuery,
   useGetUserPerformanceQuery,
-  useGet
+  useGetDashboardStatsQuery,
+  useGet,
 } = api;
 
 //useFunctionQuery

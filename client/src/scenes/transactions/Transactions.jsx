@@ -5,7 +5,9 @@ import { useTheme, Box } from '@mui/material';
 import { DataGrid,
  } from '@mui/x-data-grid';
 import { useGetTransactionsQuery } from '../../state/api';
+
 import { transactionsHeaderColumns as columns } from './transactionsHeaderColumns';
+
 import Header from '../../components/header/Header';
 import { useState } from 'react';
 import DataGridCustomToolbar from '../../components/DataGridCustomToolbar';

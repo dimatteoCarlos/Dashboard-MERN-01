@@ -5,7 +5,7 @@
 import { ResponsiveLine } from '@nivo/line';
 
 const OverviewChart = ({ view, data, theme, isDashboard = false }) => {
-  console.log('🚀 ~ OverviewChart ~ data:', data);
+  // console.log('🚀 ~ OverviewChart ~ data:', data);
 
   return (
     <ResponsiveLine
@@ -77,6 +77,7 @@ const OverviewChart = ({ view, data, theme, isDashboard = false }) => {
       axisLeft={{
         orient: 'left',
         tickSize: 5,
+        tickValues: isDashboard?5:10,
         tickPadding: 5,
         tickRotation: 0,
         legend: isDashboard

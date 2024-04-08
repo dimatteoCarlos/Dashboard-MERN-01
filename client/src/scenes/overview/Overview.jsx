@@ -38,7 +38,8 @@ const Overview = () => {
     };
     const totalUnitsCurve = {
       id: 'Total Units sold',
-      color: 'tomato', //needs  colors={{datum:'color'}} in OverviewChart.jsx
+      color: 'tomato', 
+      //needs  colors={{datum:'color'}} in OverviewChart.jsx
       // color: theme.palette.secondary[600],
       data: [], //[{x:monthN, y:accTotalUnitsAtMonthN},]
     };
