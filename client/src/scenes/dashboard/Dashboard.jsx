@@ -102,7 +102,7 @@ const Dashboard = () => {
             gridColumn='span 8'
             gridRow='span 2'
             backgroundColor={theme.palette.background.alt}
-            // p='1rem'
+            p='1rem'
             borderRadius='0.55rem'
           >
             {!salesLoading && !salesFetching && !salesError && salesData && (
@@ -180,7 +180,7 @@ const Dashboard = () => {
               minHeight={isDashboard ? '20rem' : undefined}
               minWidth={isDashboard ? '20rem' : undefined}
               position='relative'
-              border='1px solid yellow'
+              // border='1px solid yellow'
             >
               <BreakDown
                 isDashboard='true'
