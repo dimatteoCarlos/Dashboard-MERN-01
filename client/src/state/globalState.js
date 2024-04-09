@@ -8,7 +8,6 @@ const initialState = {
   mode: 'dark',
   // userId: '63701cc1f03239b7f700000e',
   userId: '63701cc1f032390a3400031a',
-
   // userId: '63701cc1f03239569400000f',
   //supposed to come from a login/auth process
 };
